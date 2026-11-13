@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  color: white;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+}
+
+:root {
+  --bg-primary-color: #000000;
+  --bg-delete-color: #eb4141;
+  --bg-secondary-color: #1a1a1a;
+  --task-bar-primary-color: #343434;
+  --task-primary-color: #4f4f4f;
+  --border-primary-color: #484848;
+  --add-task-primary-color: #434445;
+
+  --text-primary-color: #eeeeee;
+  --text-secondary-color: #121212;
+
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 15px;
+  --border-radius-xl: 20px;
+  --border-radius-xxl: 25px;
+
+  --nav-padding-sm: 15px;
+  --nav-padding-md: 40px;
+
+  --btn-padding-sm: 8px;
+  --btn-padding-md: 20px;
+  --btn-padding-lg: 30px;
+
+  --del-btn-padding-sm: 5px;
+  --del-btn-padding-md: 6px;
+
+  --section-padding-sm: 15px;
+  --section-padding-md: 40px;
+
+  --space-sm: 5px;
+  --space-md: 10px;
+  --space-lg: 25px;
+  --space-xl: 50px;
+  --space-xxl: 100px;
+}
+
+::placeholder {
+  color: var(--text-secondary-color)
+}
+
+button {
+  cursor: pointer
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--nav-padding-sm) var(--nav-padding-md);
+  border-bottom: 1px solid var(--border-primary-color);
+
+  button {
+    padding: var(--btn-padding-sm) var(--btn-padding-md);
+    border-radius: var(--border-radius-sm);
+    border: none;
+    outline: none;
+    background-color: var(--bg-secondary-color);
+  }
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  padding: var(--section-padding-sm) var(--section-padding-md);
+  gap: var(--space-xl);
+}
+
+.task-column {
+  padding: var(--space-md);
+  background-color: var(--task-bar-primary-color);
+  flex-grow: 1;
+  flex-shrink: 0;
+  height: 100%;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1)
+}
+
+.on-hover {
+  scale: 1.05;
+  border: 1.5px dashed #fff;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-primary-color);
+}
+
+.task {
+  background-color: var(--task-primary-color);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  cursor: grab;
+  flex-grow: 0;
+
+  h4 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  button {
+    background-color: var(--bg-delete-color);
+    font-weight: 700;
+    align-self: flex-end;
+    padding: var(--del-btn-padding-sm) var(--del-btn-padding-md);
+    border-radius: var(--border-radius-sm);
+    border: none;
+    outline: none;
+  }
+
+}
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.active {
+  display: flex;
+}
+
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  background-color: #4b4b4b76;
+  backdrop-filter: blur(5px);
+}
+
+.input-feild {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl) var(--space-xxl);
+  border-radius: var(--border-radius-md);
+  background-color: var(--add-task-primary-color);
+  align-items: center;
+  z-index: 5;
+
+  input {
+    width: 100%;
+    padding: var(--space-sm);
+    border-radius: var(--border-radius-sm);
+    outline: none;
+    border:none;
+    color: var(--text-secondary-color);
+    outline: none;
+    border: none;
+  }
+
+  textarea {
+    padding: var(--space-md) var(--space-sm);
+    width: 100%;
+    border-radius: var(--border-radius-md);
+    color: var(--text-secondary-color);
+    outline: none;
+    border: none;
+  }
+
+  button {
+    color: var(--text-secondary-color);
+    padding: var(--btn-padding-sm);
+    width: 100%;
+    border-radius: var(--border-radius-md);
+    outline: none;
+    border: none;
+    font-weight: 600;
+  }
+
+}
